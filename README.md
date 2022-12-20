@@ -20,7 +20,7 @@ Splunk Connect for Kafka is a Kafka Connect Sink for Splunk with the following f
 
 Splunk Connect for Kafka lets you subscribe to a Kafka topic and stream the data to the Splunk HTTP event collector on the following technologies:
 
-* Apache Kafka
+* Apache Kafk
 * Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 * Confluent Platform
 
