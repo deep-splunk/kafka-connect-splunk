@@ -199,7 +199,7 @@ public class SplunkSinkTaskTest {
         task.setHec(hec);
         task.start(config);
         task.put(createSinkRecords(0));
-        Assert.assertTrue(hec.getBatches().isEmpty());
+        Assert.assertFalse(hec.getBatches().isEmpty());
         Assert.assertTrue(task.getTracker().computeOffsets().isEmpty());
         Assert.assertTrue(task.getTracker().getAndRemoveFailedRecords().isEmpty());
 
