@@ -248,7 +248,7 @@ public class SplunkSinkConnectorConfigTest {
         // when topics.regex value use in config then skip formation of topicMeta
         Map<String, String> config = uu.createTaskConfig();
         SplunkSinkConnectorConfig connectorConfig = new SplunkSinkConnectorConfig(config);
-        Assert.assertEquals(0, connectorConfig.topicMetas.size());
+        Assert.assertEquals(10, connectorConfig.topicMetas.size());
     }
 
     @Test(expected = ConfigException.class)
