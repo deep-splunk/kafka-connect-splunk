@@ -1,7 +1,7 @@
 name: CI Build Test
 
 on:
-  pull_request_target:
+  pull_request:
     branches-ignore:
       - /^release\/.*/
       - master
