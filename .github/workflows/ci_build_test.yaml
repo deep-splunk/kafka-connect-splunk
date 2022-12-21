@@ -1,7 +1,7 @@
 name: CI Build Test
 
 on:
-  pull_request:
+  pull_request_target:
     branches-ignore:
       - /^release\/.*/
       - master
@@ -33,8 +33,7 @@ jobs:
       - name:  Setup Action
         uses: actions/checkout@v3
         with:
-          ref: ${{github.event.pull_request.head.ref}}
-          repository: ${{github.event.pull_request.head.repo.full_name}}
+          ref: ${{github.event.pull_request.head.sha}}
       - name: run fossa anlyze and create report
         run: |
           curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash
@@ -63,7 +62,7 @@ jobs:
       - name:  Setup Action
         uses: actions/checkout@v3
         with:
-          ref: ${{github.event.pull_request.head.ref}}
+          ref: ${{github.event.pull_request.head.sha}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
       - name: Semgrep
         id: semgrep
@@ -80,7 +79,7 @@ jobs:
       - name:  Setup Action
         uses: actions/checkout@v2
         with:
-          ref: ${{github.event.pull_request.head.ref}}
+          ref: ${{github.event.pull_request.head.sha}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
 
       - name: Get maven dependencies
@@ -151,7 +150,7 @@ jobs:
       - name:  Setup Action
         uses: actions/checkout@v2
         with:
-          ref: ${{github.event.pull_request.head.ref}}
+          ref: ${{github.event.pull_request.head.sha}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
 
       - name: Install Splunk
