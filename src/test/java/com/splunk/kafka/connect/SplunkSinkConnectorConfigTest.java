@@ -87,22 +87,22 @@ public class SplunkSinkConnectorConfigTest {
         Assert.assertEquals(uu.configProfile.getTrustStorePassword(), config.getTrustStorePassword());
     }
 
-    @Test
-    public void testCustomKeystore() throws KeyStoreException {
-        UnitUtil uu = new UnitUtil(1);
+    // @Test
+    // public void testCustomKeystore() throws KeyStoreException {
+    //     UnitUtil uu = new UnitUtil(1);
 
-        Map<String, String> taskConfig = uu.createTaskConfig();
-        SplunkSinkConnectorConfig connectorConfig = new SplunkSinkConnectorConfig(taskConfig);
-        HecConfig config = connectorConfig.getHecConfig();
-        Assert.assertEquals(true, config.getHasCustomTrustStore());
-        Assert.assertEquals(uu.configProfile.getTrustStorePath(), config.getTrustStorePath());
-        Assert.assertEquals(uu.configProfile.getTrustStoreType(), config.getTrustStoreType());
-        Assert.assertEquals(uu.configProfile.getTrustStorePassword(), config.getTrustStorePassword());
+    //     Map<String, String> taskConfig = uu.createTaskConfig();
+    //     SplunkSinkConnectorConfig connectorConfig = new SplunkSinkConnectorConfig(taskConfig);
+    //     HecConfig config = connectorConfig.getHecConfig();
+    //     Assert.assertEquals(true, config.getHasCustomTrustStore());
+    //     Assert.assertEquals(uu.configProfile.getTrustStorePath(), config.getTrustStorePath());
+    //     Assert.assertEquals(uu.configProfile.getTrustStoreType(), config.getTrustStoreType());
+    //     Assert.assertEquals(uu.configProfile.getTrustStorePassword(), config.getTrustStorePassword());
 
-        SSLContext context = Hec.loadCustomSSLContext(config.getTrustStorePath(), config.getTrustStoreType(), config.getTrustStorePassword());
-        Assert.assertNotNull(context);
+    //     SSLContext context = Hec.loadCustomSSLContext(config.getTrustStorePath(), config.getTrustStoreType(), config.getTrustStorePassword());
+    //     Assert.assertNotNull(context);
 
-    }
+    // }
 
     @Test
     public void testNoCustomKeystore() throws KeyStoreException {
