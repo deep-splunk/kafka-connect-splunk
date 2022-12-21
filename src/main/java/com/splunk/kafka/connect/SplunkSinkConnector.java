@@ -108,7 +108,7 @@ public final class SplunkSinkConnector extends SinkConnector {
         values = validations.stream().collect(Collectors.toMap(ConfigValue::name, Function.identity()));
 
         validateKerberosConfigs(connectorConfigs);
-        validateSplunkConfigurations(connectorConfigs);
+        // validateSplunkConfigurations(connectorConfigs);
         return new Config(validations);
     }
 
